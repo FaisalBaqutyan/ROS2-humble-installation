@@ -30,3 +30,75 @@ to upload Ubuntu in this virtual machine we should go to settings then storage t
 
 after we upload Ubuntu to the virtual machine we can run it easily  
 
+next, we will open a terminal on Ubuntu 
+
+![Screenshot from 2024-07-03 14-10-32](https://github.com/FaisalBaqutyan/ROS2-humble-installation/assets/174335196/a80d9dab-21f5-4de6-b1f0-9b921e08b14f)
+
+next we will copy and paste these codes one by one in the terminal 
+
+
+```
+locale  # check for UTF-8
+
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+locale  # verify settings
+```
+
+```
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+```
+
+```
+sudo apt update && sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
+
+```
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+
+```
+sudo apt update
+```
+
+```
+sudo apt upgrade
+```
+
+```
+sudo apt install ros-humble-desktop
+```
+
+```
+sudo apt install ros-humble-ros-base
+```
+
+```
+sudo apt install ros-dev-tools
+```
+
+that's how you can install ROS2 easily now we can try an examble to make sure that ROS2 humble is installed without any problem 
+
+we will open two terminal
+
+in the first terminal we will copy this code 
+
+```
+source /opt/ros/humble/setup.bash
+ros2 run demo_nodes_cpp talker
+```
+
+and in the second terminal we will copy this code 
+
+```
+source /opt/ros/humble/setup.bash
+ros2 run demo_nodes_py listener
+```
+
+now we should see this 
+
