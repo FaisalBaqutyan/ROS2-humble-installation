@@ -102,3 +102,6 @@ ros2 run demo_nodes_py listener
 
 now we should see this 
 
+![Screenshot from 2024-07-03 14-38-07](https://github.com/FaisalBaqutyan/ROS2-humble-installation/assets/174335196/ee9047a1-511f-42e0-a0ad-9a8a152e98ba)
+
+that's how we can install ROS2 humble
